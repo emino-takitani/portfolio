@@ -160,11 +160,13 @@ li {
 
 .about-container {
     display: flex;
+    align-items: center;
 }
 
 .about-details {
     display: flex;
     margin: 0 auto;
+    letter-spacing: 0.1em;
 }
 
 
