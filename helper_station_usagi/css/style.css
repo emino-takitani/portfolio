@@ -25,7 +25,7 @@ a {
 }
 
 .logo {
-    position: relative;
+    float: left;
     padding: 20px 20px 20px 70px;
     float: left;
 }
@@ -34,22 +34,22 @@ a {
     display: flex;
 }
 
-.main-nav {
+.main-nav ul {
     display: flex;
 }
 
-ul.main-nav li {
+.main-nav ul li {
     margin: 0 auto;
     font-size: 16px;
     word-break: keep-all;
     padding: 25px;
 }
 
-ul.main-nav li a {
+.main-nav ul li a {
     color: #141414;
 }
 
-ul.main-nav li a:hover {
+.main-nav ul li a:hover {
     color: #e4a90a;
 }
 
@@ -64,8 +64,12 @@ ul.main-nav li a,
     font-size: 16px;
 }
 
-ul.main-nav li {
+.main-nav ul li {
     align-items: center;
+}
+
+input[type="checkbox"] {
+    display: none;
 }
 
 .main-navbutton0 {
@@ -108,13 +112,18 @@ ul.main-nav li {
     margin: 0 auto;
 }
 
+.top-kv img {
+    width: 100%;
+    max-width: 100%;
+}
+
 
 /* メインキービジュアル */
 
 .main-kv {
-    box-sizing: border-box;
-    padding: 70px 200px;
-    justify-content: center;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .main-kv img {
@@ -146,6 +155,14 @@ ul.main-nav li {
     list-style: none;
 }
 
+ul.service-contents li,
+ul.usagidetail-contents li {
+    margin: 0 25px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
 ul.service-contents li a,
 ul.usagidetail-contents li a {
     color: #d09e2a;
@@ -160,13 +177,12 @@ ul.usagidetail-contents li a:hover {
 .usagidetail-img {
     max-width: 100%;
     border-radius: 21px;
-    margin: 0 25px;
 }
 
 .service-texttitle,
 .usagidetail-texttitle {
-    justify-content: center;
-    display: flex;
+    display: block;
+    text-align: center;
     color: #5d3808;
     padding: 21px;
     font-size: 24px;
@@ -175,8 +191,6 @@ ul.usagidetail-contents li a:hover {
 .service-textmain,
 .usagidetail-textmain {
     font-size: 16px;
-    display: flex;
-    justify-content: center;
     line-height: 1.8;
     color: #141414;
 }
@@ -301,6 +315,7 @@ ul.threebox-contents li {
     background: rgb(250 246 246 / 65%);
     display: block;
     padding: 20px 0;
+    margin: 0 auto;
 }
 
 ul.threebox-contents li {
@@ -404,7 +419,7 @@ ul.button-container li:hover a {
     color: #141414;
 }
 
-.tel-button {
+.tel-button a {
     display: flex;
     font-weight: bold;
     min-width: 366px;
@@ -412,7 +427,6 @@ ul.button-container li:hover a {
     border-radius: 40px;
     background: #e4a90a;
     border: 2px solid #e4a90a;
-    text-align: center;
     justify-content: center;
     align-items: center;
     font-size: 24px;
@@ -421,10 +435,11 @@ ul.button-container li:hover a {
 }
 
 .tel-icon {
-    padding-right: 10px;
+    max-width: 10%;
+    fill: #fff;
 }
 
-.mail-button {
+.mail-button a {
     display: flex;
     font-weight: bold;
     min-width: 366px;
@@ -438,34 +453,19 @@ ul.button-container li:hover a {
     font-size: 24px;
     cursor: pointer;
     margin: 0 24px;
+    color: #fff;
 }
 
-.mail-button:hover:before {
-    /* 同じサイズ */
-    width: 38px;
-    height: 32px;
-    /* 背景透過で濃い色のアイコン画像 */
-    background: url(../images/mailiconhover.png) no-repeat 0 0;
-    background-size: 100%;
-    display: inline-block;
-    content: "";
-}
-
-.tel-button:hover:before {
-    /* 同じサイズ */
-    width: 27px;
-    height: 35px;
-    margin-right: 2px;
-    /* 背景透過で濃い色のアイコン画像 */
-    background: url(../images/teliconhover.png) no-repeat 0 0;
-    background-size: 100%;
-    display: inline-block;
-    content: "";
+ul.button-container li a:hover .tel-icon,
+ul.button-container li a:hover .mail-icon {
+    fill: #141414;
 }
 
 .mail-icon {
     padding-right: 10px;
     padding-left: 10px;
+    max-width: 10%;
+    fill: #fff;
 }
 
 .regular-container {
@@ -543,4 +543,191 @@ ul.footer-menu-contents2 li a {
 ul.footer-menu-contents1,
 ul.footer-menu-contents2 {
     list-style: none;
+}
+
+
+/* レスポンシブ */
+
+
+/* =================
+ハンバーガーボタンの実装
+================= */
+
+@media (max-width:1400px) {
+    .menu-btn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        height: 60px;
+        width: 60px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        background-color: #e4a90a;
+    }
+    .menu-btn:hover {
+        cursor: pointer;
+    }
+    /* 三本線の実装 */
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        position: absolute;
+    }
+    .menu-btn span:before {
+        bottom: 8px;
+    }
+    .menu-btn span:after {
+        top: 8px;
+    }
+    /* チェックボックスを非表示にする */
+    #menu-btn-check {
+        display: none;
+    }
+    #menu-btn-check:checked~.menu-btn span {
+        background-color: rgba( 255, 255, 255, 0);
+        /*メニューオープン時は真ん中の線を透明にする*/
+    }
+    /* メニューを開いている時はハンバーガーボタンが×になる */
+    #menu-btn-check:checked~.menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    #menu-btn-check:checked~.menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    /* =================
+      メニュー部分の実装
+      ================= */
+    .main-nav {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        /* メニューを外に出しておく */
+        left: 100%;
+        z-index: 80;
+        background-color: #e4a90a;
+        transition: all 0.5s;
+        /*アニメーションを滑らかにする*/
+    }
+    .main-nav ul {
+        padding: 70px 10px 0;
+        display: block;
+    }
+    .main-nav ul li {
+        border-bottom: solid 1px #ffffff;
+        list-style: none;
+    }
+    .main-nav ul li a {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        box-sizing: border-box;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 9px 15px 10px 0;
+        position: relative;
+    }
+    #menu-btn-check:checked~.main-nav {
+        left: 0%;
+        /*メニューを画面内へ動かす*/
+    }
+}
+
+
+/* メニュー内お問い合わせ削除 */
+
+@media (max-width:1400px) {
+    .main-navbutton0 {
+        display: none;
+    }
+}
+
+
+/* トップキービジュアル */
+
+
+/* メインキービジュアル */
+
+
+/* サービス内容 */
+
+@media (max-width:1000px) {
+    .service-contents {
+        display: block;
+    }
+    .service-img {
+        margin: 0 auto;
+    }
+}
+
+
+/* ヘルパーステーションうさぎについて */
+
+@media (max-width:1000px) {
+    .usagidetail-contents {
+        display: block;
+    }
+    .usagidetail-img {
+        margin: 0 auto;
+    }
+}
+
+
+/* お知らせ */
+
+@media (max-width:1000px) {
+    .information-list {
+        padding-inline-start: 40px;
+    }
+}
+
+
+/* よくあるご質問、お手続きのご相談について、採用情報 */
+
+@media (max-width:1000px) {
+    .threebox-contents {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+
+/* アクセス */
+
+@media (max-width:1000px) {
+    .access {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+
+/* お問い合わせ */
+
+
+/* フッター */
+
+
+/* Googleマップ */
+
+@media (max-width: 1000px) {
+    .access-container {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .googlemap {
+        justify-content: center;
+        margin: 0 auto;
+    }
 }
