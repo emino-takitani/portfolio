@@ -229,10 +229,6 @@ ul.usagidetail-contents li a:hover {
     list-style-type: none;
 }
 
-.threebox {
-    height: 354px;
-}
-
 .information {
     max-width: 100%;
     height: 400px;
@@ -326,18 +322,16 @@ ul.threebox-contents li {
 /* アクセス */
 
 .access {
-    height: 560px;
-    max-height: 560px;
     background-color: #f7edd6;
     align-items: center;
     border-top: 4.5px solid #f4d48a;
     border-bottom: 4.5px solid #f4d48a;
+    padding: 70px 0;
 }
 
 .access-title {
     text-align: center;
     font-size: 36px;
-    padding-top: 72.5px;
     padding-bottom: 37px;
     color: #d09e2a;
     justify-content: center;
@@ -371,13 +365,18 @@ ul.threebox-contents li {
     justify-content: center;
 }
 
+.accessmap {
+    max-width: 620px;
+    width: 100%;
+}
+
 
 /* お問い合わせ */
 
 .inquiry {
+    padding: 70px 0;
     text-align: center;
     margin: 0 auto;
-    height: 380px;
 }
 
 .unknown-point {
@@ -387,7 +386,7 @@ ul.threebox-contents li {
 
 .inquiry-title {
     font-size: 36px;
-    padding-top: 72.5px;
+    padding-bottom: 37px;
     color: #d09e2a;
     justify-content: center;
 }
@@ -476,8 +475,6 @@ ul.button-container li a:hover .mail-icon {
 /* footer */
 
 .footer {
-    height: 360px;
-    max-height: 360px;
     background-color: #f7edd6;
     display: flex;
     border-top: 4.5px solid #f4d48a;
@@ -513,12 +510,12 @@ ul.threebox-contents li {
 }
 
 .footer-inner {
-    max-width: 950px;
     width: 100%;
     margin: 0 auto;
     margin-top: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 30px;
 }
 
 .footer-container {
@@ -530,6 +527,7 @@ ul.footer-menu-contents2 li a {
     justify-content: center;
     margin: 0 auto;
     line-height: 3;
+    padding: 0 20px;
 }
 
 .footer-menu {
@@ -710,18 +708,51 @@ ul.footer-menu-contents2 {
         text-align: center;
         margin: 0 auto;
     }
+    .access-logo {
+        padding-right: 0;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+    .nearest-station {
+        padding: 20px 0;
+    }
 }
 
 
 /* お問い合わせ */
 
+@media (max-width:1000px) {
+    .button-container {
+        display: block;
+        margin: 0 auto;
+    }
+    ul.button-container li {
+        justify-content: center;
+        padding: 10px 0;
+    }
+}
+
 
 /* フッター */
+
+@media(max-width:1000px) {
+    .footer-inner {
+        display: block;
+    }
+    .footer-logo,
+    .address-container,
+    ul.footer-menu-contents1 li,
+    ul.footer-menu-contents2 {
+        margin: 0 auto;
+        align-items: center;
+        text-align: center;
+    }
+}
 
 
 /* Googleマップ */
 
-@media (max-width: 1000px) {
+@media(max-width:1000px) {
     .access-container {
         flex-direction: column;
         margin: 0 auto;
