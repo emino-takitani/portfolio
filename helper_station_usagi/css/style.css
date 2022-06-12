@@ -117,6 +117,28 @@ input[type="checkbox"] {
     max-width: 100%;
 }
 
+.top-text {
+    position: absolute;
+    font-size: 100px;
+    color: #5d3808;
+    top: 420px;
+    left: 101px;
+}
+
+.top-text2 {
+    position: absolute;
+    font-size: 5vw;
+    color: #faf5f5;
+    text-shadow: 0 2px 8px #5c3b06;
+    top: 530px;
+    left: 101px;
+    line-height: 60px;
+}
+
+.titletext {
+    line-height: 1;
+}
+
 
 /* メインキービジュアル */
 
@@ -129,6 +151,18 @@ input[type="checkbox"] {
 .main-kv img {
     width: 100%;
     max-width: 100%;
+}
+
+.main-text {
+    position: absolute;
+    text-align: center;
+    font-size: 2.5vw;
+    color: #fff;
+    line-height: 100px;
+    text-shadow: 0 3px 6px rgb(92, 54, 6, 0.4);
+    letter-spacing: normal;
+    top: 230px;
+    left: 400px;
 }
 
 
@@ -759,6 +793,8 @@ ul.footer-menu-contents2 {
     }
     .googlemap {
         justify-content: center;
+    }
+    .accessmap {
         margin: 0 auto;
     }
 }
